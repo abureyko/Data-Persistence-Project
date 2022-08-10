@@ -12,7 +12,7 @@ public class Ball : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
     }
     
-    private void OnCollisionExit(Collision other)
+    void OnCollisionExit(Collision other)
     {
         var velocity = m_Rigidbody.velocity;
         

@@ -33,8 +33,10 @@ public class Brick : MonoBehaviour
         renderer.SetPropertyBlock(block);
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
+        MainManager.bricksDestroyed++;
+
         onDestroyed.Invoke(PointValue);
         
         //slight delay to be sure the ball have time to bounce
