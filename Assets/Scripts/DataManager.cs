@@ -10,6 +10,7 @@ public class DataManager : MonoBehaviour
     public static string inputName;
     public static string parsedName;
     public static int parsedScore;
+    public static int currentScore;
     
 
     void Awake()

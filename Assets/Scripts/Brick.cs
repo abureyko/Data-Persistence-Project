@@ -7,11 +7,13 @@ using UnityEngine.Events;
 public class Brick : MonoBehaviour
 {
     public UnityEvent<int> onDestroyed;
-    
+    private MainManager mainManagerScript;
     public int PointValue;
 
     void Start()
     {
+        mainManagerScript = GameObject.Find("MainManager").GetComponent<MainManager>();
+        
         var renderer = GetComponentInChildren<Renderer>();
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();
@@ -35,7 +37,7 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        MainManager.bricksDestroyed++;
+        mainManagerScript.bricksDestroyed++;
 
         onDestroyed.Invoke(PointValue);
         

@@ -9,8 +9,9 @@ using System;
 
 public class MainManager : MonoBehaviour
 {
+    [HideInInspector]
+    public int bricksDestroyed = 0;
     public Brick BrickPrefab;
-    public static int bricksDestroyed = 0;
     public int lineCount = 6;
     public Rigidbody Ball;
     public GameObject BallGameobj;
@@ -52,6 +53,8 @@ public class MainManager : MonoBehaviour
 
     void Update()
     {
+        DataManager.currentScore = m_Points;
+        
         if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))
